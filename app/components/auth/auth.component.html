@@ -1,0 +1,32 @@
+<div class="container register">
+    <div class="row">
+        <div class="col-md-4 register-left">
+            <img src="assets/images/logo1.jpg" style="width: 150px;" alt=""/>
+            <h3>Bienvenue</h3>
+            <p>Réparez votre voiture en temps record!</p>
+        </div>
+        <div class="col-md-8 register-right">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Connexion</h3>
+                    <div class="row register-form">
+                        <div class="col-md-12">
+
+                            <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate id="loginForm">
+                                <div class="form-group">
+                                    <input name="login" type="text" ngModel required class="form-control" placeholder="Login" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input name="password" type="password" ngModel required class="form-control" placeholder="Mot de passe" value="" />
+                                </div>
+                                <input type="submit" class="btnRegister"  value="Se connexion"/>
+                            </form>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,50 @@
+/* .page-item.active .page-link 
+{
+    background: 0 !important;
+    color: #00A984 !important;
+    font-weight: bold !important;
+    border: 0 !important;
+} */
+
+
+.table-striped>tbody>tr:nth-of-type(even)
+{
+    background: #EBEBEB !important
+}
+
+
+input,select,::placeholder,button{
+font-size: 12px !important;
+font-weight: 600;
+line-height: 14px !important;
+}
+
+.table td{
+    font-size: 12px !important;
+    font-weight: 600;
+}
+th{
+    font-size: 12px !important;
+}
+/deep/ .page-item.active .page-link{
+    background: #E36C08 !important;
+    border:solid #E36C08;
+    font-size: 12px;
+    /* line-height: 14px !important; */
+
+   
+}
+
+/deep/ .nb-theme-default li{
+    line-height: 0.25rem;
+}
+
+/deep/ .nb-theme-default nb-card-header{
+    background: #E36C08 !important;
+    color: white;
+}
+
+/deep/ .mat-form-field-flex{
+    padding-top: 0 !important;
+    line-height: 9px;
+}

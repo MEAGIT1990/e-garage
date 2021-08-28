@@ -11,7 +11,7 @@ import { UserService } from '../../../../core/services/user.service';
 @Component({
   selector: 'ngx-role-modal',
   templateUrl: './role-modal.component.html',
-  styleUrls: ['./role-modal.component.scss']
+  styleUrls: ['./role-modal.component.scss','../../../../../assets/custom-style.css']
 })
 export class RoleModalComponent implements OnInit {
   @Input() title: string;

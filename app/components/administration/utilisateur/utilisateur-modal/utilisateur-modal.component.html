@@ -1,0 +1,132 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-xxxl-12 modal-body">
+            <nb-card>
+                <nb-card-header>
+                    Utilisateur
+                    <button (click)="dismiss()"  type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </nb-card-header>
+                <nb-card-body>
+                 <div class="row">
+                     <!-- <div class="col col-md-6">
+                         <strong>Code</strong>
+                      <input [(ngModel)]="itemToSave.code" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer code">
+                     </div> -->
+              
+                     <div class="col col-md-6">
+                      <strong>Nom</strong>
+                      <input [(ngModel)]="itemToSave.nom" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer nom">
+                     </div>
+                     <div class="col col-md-6">
+                        <strong>Prenom</strong>
+                        <input [(ngModel)]="itemToSave.prenom" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer prenom">
+                     </div>
+                     <div class="col col-md-6">
+                        <strong>Civilité</strong>
+                        <input [(ngModel)]="itemToSave.civilite" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer civilite">
+                     </div>
+                     <div class="col col-md-6">
+                        <strong>Contact</strong>
+                        <input [(ngModel)]="itemToSave.contact" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer contact">
+                     </div>
+                     <div class="col col-md-6">
+                        <strong>Cel1</strong>
+                        <input [(ngModel)]="itemToSave.cel1" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer cel1">
+                     </div>
+                     <div class="col col-md-6">
+                        <strong>Cel2</strong>
+                        <input [(ngModel)]="itemToSave.cel2" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer cel2">
+                     </div>
+                     <div class="col col-md-6">
+                        <strong>LieuNais</strong>
+                        <input [(ngModel)]="itemToSave.lieuNais" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer lieuNais">
+                     </div>
+
+                     <div class="col col-md-6">
+                        <strong>CommuneNais</strong>
+                        <input [(ngModel)]="itemToSave.communeNais" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer communeNais">
+                     </div>
+
+                     <div class="col col-md-6">
+                        <strong>VilleNais</strong>
+                        <input [(ngModel)]="itemToSave.villeNais" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer villeNais">
+                     </div>
+
+                     <div class="col col-md-6">
+                        <strong>QuartierResidence</strong>
+                        <input [(ngModel)]="itemToSave.quartierResidence" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer quartierResidence">
+                     </div>
+
+                     <div class="col col-md-6">
+                        <strong>DateExpirationPiece</strong>
+                        <input [(ngModel)]="itemToSave.dateExpirationPiece" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer dateExpirationPiece">
+                     </div>
+                     <div class="col col-md-6">
+                        <strong>DateNais</strong>
+                        <input [(ngModel)]="itemToSave.dateNais" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer dateNais">
+                     </div>
+
+                     <div class="col col-md-6">
+                        <strong>NumeroPiece</strong>
+                        <input [(ngModel)]="itemToSave.numeroPiece" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer numeroPiece">
+                     </div>
+
+                     <div class="col col-md-6">
+                        <strong>Email</strong>
+                        <input [(ngModel)]="itemToSave.email" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer email">
+                     </div>
+                     <div class="col col-md-6">
+                        <strong>Login</strong>
+                        <input [(ngModel)]="itemToSave.login" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer login">
+                     </div>
+                     <div class="col col-md-6">
+                        <strong>Password</strong>
+                        <input [(ngModel)]="itemToSave.password" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer password">
+                     </div>
+
+                     <div class="col col-md-6">
+                        <strong>Password</strong>
+                        <input [(ngModel)]="itemToSave.password" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer password">
+                     </div>
+
+                     <div class="col col-md-6">
+                        <strong>DateEtablissementPiece</strong>
+                        <input [(ngModel)]="itemToSave.dateEtablissementPiece" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer dateEtablissementPiece">
+                     </div>
+                     <div class="col col-md-6">
+                        <strong>Type utilisateur</strong>
+                        <select class="form-control" name="typeUserId" [(ngModel)]="itemToSave.typeUserId">
+                            <option value="">Choisir Type utilisateur</option>
+                            <option *ngFor="let item of ListDatasRole" value="{{item.id}}">item.libelle</option>
+                        </select>
+                    </div>
+
+
+                     <div class="col col-md-6">
+                        <strong>Role</strong>
+                        <select class="form-control" name="roleId" [(ngModel)]="itemToSave.roleId">
+                            <option value="">Choisir role</option>
+                            <option *ngFor="let item of ListDatasRole" value="{{item.id}}">item.libelle</option>
+                        </select>
+                    </div>
+                 </div>
+                </nb-card-body>
+                <nb-card-footer>
+                  <button title="Fermer" nbButton hero status="danger" (click)="dismiss()" style="margin-right: 5px;">Fermer</button>
+                  <button title="Enregistrer" nbButton hero status="success" (click)="confirmSave(itemToSave)">Enregistrer</button>
+                </nb-card-footer>
+              </nb-card>
+        </div>
+    </div>
+</div>
+
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff"
+type = "ball-clip-rotate-pulse"
+>
+<p style="color: white" > Chargement... </p>
+</ngx-spinner>

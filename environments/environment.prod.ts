@@ -5,4 +5,5 @@
  */
 export const environment = {
   production: true,
+  baseUrl:'http://51.222.86.183:8080/garage/'
 };

@@ -35,14 +35,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
       //   link: '/pages/layout/accordion',
       // },
       {
-        title: 'Ouverture de dossier',
-        pathMatch: 'prefix',
-        link: '/pages/accueil/ouverture-dossier',
+        title: 'Client',
+        link: '/pages/accueil/client',
       },
+      
       {
         title: 'Saisie véhicule',
         link: '/pages/accueil/saisie-vehicule',
       },
+      {
+        title: 'Ouverture de dossier',
+        pathMatch: 'prefix',
+        link: '/pages/accueil/ouverture-dossier',
+      }
     ],
   },
   {
@@ -147,17 +152,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'grid-outline',
     children: [
       {
-        title: 'Client',
-        link: '/pages/parametrage/client',
+        title: 'Module reception',
+        link: '/pages/parametrage/autres-parametres',
       },
-      {
-        title: 'Marque vehicule',
-        link: '/pages/tables/tree-gridxx',
-      },
-      {
-        title: 'Couleur vehicule',
-        link: '/pages/tables/smart-tablexx',
-      },
+      // {
+      //   title: 'Module diagnostic',
+      //   link: '/pages/parametrage/autres-parametres',
+      // },{
+      //   title: 'Module atelier',
+      //   link: '/pages/parametrage/autres-parametres',
+      // },{
+      //   title: 'Module facturation',
+      //   link: '/pages/parametrage/autres-parametres',
+      // }
     ],
   },
   {

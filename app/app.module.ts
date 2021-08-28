@@ -20,9 +20,13 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { AuthComponent } from './components/auth/auth.component';
+import { SharedModule } from './shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,AuthComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -39,6 +43,9 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    HttpClientModule,
+    SharedModule,
+    NgbModule
   ],
   bootstrap: [AppComponent],
 })

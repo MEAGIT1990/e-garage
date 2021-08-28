@@ -7,10 +7,11 @@ const routes: Routes = [
     path:'',component:ParametrageComponent,
     children:[
       {
-        path:'',redirectTo:'client'
+        path:'autres-parametres',redirectTo:'type-client'
       },
+     
       {
-        path:'client',loadChildren:()=>import('./client/client.module').then(m=>m.ClientModule)
+        path:'autres-parametres',loadChildren:()=>import('./autres-parametres/autres-parametres.module').then(m=>m.AutresParametresModule)
       }
     ]
   }

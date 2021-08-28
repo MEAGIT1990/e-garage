@@ -1,0 +1,78 @@
+
+<nb-card>
+    <nb-card-header style="text-align: right;">
+      <div class="row">
+        <!-- <div class="col col-md-2">
+          <input [(ngModel)]="itemToSearch.code" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer code">
+        </div> -->
+        <div class="col col-md-6">
+          <input [(ngModel)]="itemToSearch.libelle" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer libellé">
+        </div>
+        <div class="col col-md-3">
+         
+          <button title="Vider" *ngIf="itemToSearch.code || itemToSearch.libelle"  nbButton status="danger" (click)="cancelData();getData()" style="margin-right: 3px;">
+            <i class="fa fa-times" style="margin-right: 2px;"></i>
+          </button>
+          <button title="Rechercher"  nbButton status="info" (click)="getData();config.currentPage =1">
+            <i class="fa fa-search"></i>
+            Rechercher
+          </button>
+          
+        </div>
+        <div class="col col-md-2">
+          <button   nbButton status="success" (click)="onCreateData()">
+            <i class="fa fa-plus"></i>
+            Nouveau
+          </button>
+        </div>
+      </div>
+   
+      
+
+    </nb-card-header>
+  
+    <nb-card-body>
+      <table class="table">
+        <thead>
+          <tr>
+            <th  width="5%">#</th>
+            <!-- <th  width="15%">Code</th> -->
+            <th  width="75%">Libellé</th>
+            <th  width="20%">Options</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item  of ListItems;let i=index">
+            <th scope="row">{{(i+1) + ((config.currentPage - 1) * config.itemsPerPage)}}</th>
+            <!-- <td>{{item.code}}</td> -->
+            <td>{{item.libelle}}</td>
+            <td>
+              <button title="Modifier" style="margin-right: 5px;" nbButton status="info" (click)="onCreateData(item)"><i class="fa fa-edit"></i></button>
+              <button title="Supprimer" style="margin-right: 5px;" nbButton status="danger" (click)="confirmDelete(item)"><i class="fa fa-trash"></i></button>
+
+            </td>
+         
+          </tr>
+          <tr>
+            <td colspan="7" *ngIf="ListItems && ListItems.length==0" class="text-center" style="font-weight: 700;">Aucune donnée disponible</td>
+          </tr>
+         
+        </tbody>
+      </table>
+
+      <ngb-pagination (pageChange)="pageChange($event)" [pageSize]="config.itemsPerPage" [collectionSize]="config.totalItems" [(page)]="config.currentPage" aria-label="Default pagination"></ngb-pagination>
+
+    </nb-card-body>
+
+    <nb-card-footer>
+    </nb-card-footer>
+  </nb-card>
+  <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type = "ball-clip-rotate-pulse"
+  >
+  <p style="color: white" > Chargement... </p>
+</ngx-spinner>

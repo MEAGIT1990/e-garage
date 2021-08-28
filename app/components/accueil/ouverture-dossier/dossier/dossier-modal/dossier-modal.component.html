@@ -1,0 +1,302 @@
+<div class="container">
+
+   
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-xxxl-12 modal-body">
+            <nb-card>
+                <nb-card-header>
+                    Dossier
+                    <button (click)="dismiss()"  type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </nb-card-header>
+                <nb-card-body>
+                 <div class="row">
+
+                     <!-- <div class="col col-md-12">
+                      <strong>Libellé</strong>
+                      <input [(ngModel)]="itemToSave.libelle" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer libellé">
+                     </div> -->
+                      <div class="col col-md-12">
+                         <strong>Vehicule</strong>
+                      <select class="form-control" name="vehiculeId" [(ngModel)]="itemToSave.vehiculeId">
+                          <option value="">Choisir Vehicule</option>
+                          <option *ngFor="let item of ListDataVehicule" value="{{item.id}}">{{item.typeCommerceLibelle}}</option>
+                      </select>
+                      </div>
+
+                      <div class="col col-md-12">
+                        <strong>Statut</strong>
+                     <select class="form-control" name="statutId" [(ngModel)]="itemToSave.statutId">
+                         <option value="">Choisir Statut</option>
+                         <option *ngFor="let item of ListDataStatut" value="{{item.id}}">{{item.libelle}}</option>
+                     </select>
+                     </div>
+                     <div class="col col-md-12">
+                        <strong>Documents</strong>
+                        <ng-multiselect-dropdown
+                        [placeholder]="'Choisir documents'"
+                        [settings]="dropdownSettingsDocument"
+                        [data]="ListDataDocument"
+                        [(ngModel)]="itemToSave.datasDocument"
+                        (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)"
+                      >
+                      </ng-multiselect-dropdown>
+                     </div>
+                     <div class="col col-md-12" style="margin-bottom: 10px;">
+                        <strong>Equipements</strong>
+                        <!-- <ng-select [(ngModel)]="itemToSave.equipementSelected" name="medicamentSelected" id="medicamentSelected" [ngModelOptions]="{standalone: true}">
+                           <ng-option *ngFor="let niv of ListDataEquipement" [value]="niv">{{(niv?.libelle)}}</ng-option>
+                         </ng-select> -->
+
+                         <ng-multiselect-dropdown
+                         [placeholder]="'custom placeholder'"
+                         [settings]="dropdownSettingsEquipement"
+                         [data]="ListDataEquipement"
+                         [(ngModel)]="itemToSave.datasEquipement"
+                         (onSelect)="onItemSelect($event)"
+                         (onSelectAll)="onSelectAll($event)"
+                       >
+                       </ng-multiselect-dropdown>
+                     </div>
+                    
+
+                      <!-- <div class="col col-md-12">
+                     
+                         <strong>Date entrée</strong><br>
+                         <mat-form-field appearance="fill">
+                            <input [(ngModel)]="itemToSave.enteredAt"   matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker  #picker></mat-datepicker>
+                          </mat-form-field>
+                       </div> -->
+                      
+                       <div class="card col col-md-4">
+                        <div class="card-header">
+                          Équipements
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isPosteAutoRadio">Post auto radio</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isPosteAutoRadio" [(ngModel)]="itemToSave.isPosteAutoRadio" type="checkbox" name="isPosteAutoRadio" style="margin-right: 5px;">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isFacadeAutoRadio">Facade auto radio</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isFacadeAutoRadio" [(ngModel)]="itemToSave.isFacadeAutoRadio" type="checkbox" name="isFacadeAutoRadio" style="margin-right: 5px;">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isAntenneRadio">Antenne radio</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isAntenneRadio" [(ngModel)]="itemToSave.isAntenneRadio" type="checkbox" name="isAntenneRadio" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isTelephone">Téléphone</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isTelephone" [(ngModel)]="itemToSave.isTelephone" type="checkbox" name="isTelephone" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isAttelage">Attelage</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isAttelage" [(ngModel)]="itemToSave.isAttelage" type="checkbox" name="isAttelage" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                      <div class="card col col-md-4">
+                        <div class="card-header">
+                          Éléments manquants
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isCric">Cric</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isCric" [(ngModel)]="itemToSave.isCric" type="checkbox" name="isCric" style="margin-right: 5px;">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isManivelle">Manivelle</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isManivelle" [(ngModel)]="itemToSave.isManivelle" type="checkbox" name="isManivelle" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isRoueSecours">Roue de secours</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isRoueSecours" [(ngModel)]="itemToSave.isRoueSecours" type="checkbox" name="isRoueSecours" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isBatterie">Batterie</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isBatterie" [(ngModel)]="itemToSave.isBatterie" type="checkbox" name="isBatterie" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isSiege">Siège</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isSiege" [(ngModel)]="itemToSave.isSiege" type="checkbox" name="isSiege" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isAlternateur">Alternateur</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isAlternateur" [(ngModel)]="itemToSave.isAlternateur" type="checkbox" name="isAlternateur" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col col-md-10">
+                              <label for="isDemarreur">Démarreur</label>
+                            </div>
+                            <div class="col col-md-2" >
+                              <input id="isDemarreur" [(ngModel)]="itemToSave.isDemarreur" type="checkbox" [(ngModel)]="itemToSave.isDemarreur"  name="isDemarreur" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card col col-md-4">
+                        <div class="card-header">
+                          Jantes <span style="float: right;">Quantité</span>
+                        </div>
+                        <div class="card-body">
+                          <div class="row" style="margin-bottom: 5px;">
+                            <div class="col col-md-6">
+                              <input id="isAluminium" [(ngModel)]="itemToSave.isAluminium" type="checkbox" name="isAluminium" style="margin-right: 5px;">
+                              <label for="isAluminium">Aluminium</label>
+                            </div>
+                            <div class="col col-md-6" >
+                              <input class="form-control" id="quantiteAluminium" [(ngModel)]="itemToSave.quantiteAluminium" type="number" name="quantiteAluminium" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+                          <div class="row" style="margin-bottom: 5px;">
+                            <div class="col col-md-6">
+                              <input id="isTole" [(ngModel)]="itemToSave.isTole" type="checkbox" name="isTole" style="margin-right: 5px;">
+                              <label for="isTole">Tole</label>
+                            </div>
+                            <div class="col col-md-6" >
+                              <input class="form-control" id="quantiteTole" [(ngModel)]="itemToSave.quantiteTole" type="number" name="quantiteTole" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col col-md-6">
+                              <input id="isEnjoliveur" [(ngModel)]="itemToSave.isEnjoliveur" type="checkbox" name="isEnjoliveur" style="margin-right: 5px;">
+                              <label for="isEnjoliveur">Enjoliveur</label>
+                            </div>
+                            <div class="col col-md-6" >
+                              <input class="form-control" id="quantiteEnjoliveur" [(ngModel)]="itemToSave.quantiteEnjoliveur" type="number" name="quantiteEnjoliveur" style="margin-right: 5px;">
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      
+                       <!-- <div class="col col-md-12">
+                         <div class="row">
+                          <div class="col md-10">
+                            <label for="isCric">Cric</label>
+                          </div>
+                          <div class="col md-2" >
+                            <input id="isCric" type="checkbox" name="isCric" style="margin-right: 5px;">
+                            
+                          </div>
+                          <div class="col md-10">
+                            <label for="isManivelle">Manivelle</label>
+                          </div>
+                          <div class="col md-2" >
+                            <input id="isManivelle" type="checkbox" name="isManivelle" style="margin-right: 5px;">
+                            
+                          </div>
+                          <div class="col md-10">
+                            <label for="isRoueSecours">Roue secours</label>
+                          </div>
+                          <div class="col md-2" >
+                            <input id="isRoueSecours" type="checkbox" name="isRoueSecours" style="margin-right: 5px;">
+                            
+                          </div>
+
+                          <div class="col md-10">
+                            <label for="isBatterie">Batterie</label>
+                          </div>
+                          <div class="col md-2" >
+                            <input id="isBatterie" type="checkbox" name="isBatterie" style="margin-right: 5px;">
+                            
+                          </div>
+                         </div>
+
+                       </div> -->
+                      
+
+                       <div class="col col-md-12">
+                        <strong>Ressenti</strong>
+                            <textarea [(ngModel)]="itemToSave.ressenti" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer ressenti"></textarea>
+                       </div>
+
+
+              
+                 </div>
+                </nb-card-body>
+                <nb-card-footer>
+                  <button title="Fermer" nbButton hero status="danger" (click)="dismiss()" style="margin-right: 5px;">Fermer</button>
+                  <button title="Enregistrer" nbButton hero status="success" (click)="confirmSave(itemToSave)">Enregistrer</button>
+                </nb-card-footer>
+              </nb-card>
+        </div>
+    </div>
+</div>
+
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff"
+type = "ball-clip-rotate-pulse"
+>
+<p style="color: white" > Chargement... </p>
+</ngx-spinner>

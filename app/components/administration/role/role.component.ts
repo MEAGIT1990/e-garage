@@ -11,7 +11,7 @@ import { RoleModalComponent } from './role-modal/role-modal.component';
 @Component({
   selector: 'ngx-role',
   templateUrl: './role.component.html',
-  styleUrls: ['./role.component.scss']
+  styleUrls: ['./role.component.scss','../../../../assets/custom-style.css']
 })
 export class RoleComponent implements OnInit {
 

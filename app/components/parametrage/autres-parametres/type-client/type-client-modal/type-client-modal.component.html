@@ -1,0 +1,40 @@
+<div class="container" >
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-xxxl-12 modal-body">
+            <nb-card>
+                <nb-card-header>
+                    Type client
+                    <button (click)="dismiss()"  type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </nb-card-header>
+                <nb-card-body>
+                 <div class="row">
+                     <!-- <div class="col col-md-6">
+                         <strong>Code</strong>
+                      <input [(ngModel)]="itemToSave.code" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer code">
+                     </div> -->
+              
+                     <div class="col col-md-12">
+                      <strong>Libellé</strong>
+                      <input [(ngModel)]="itemToSave.libelle" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer libellé">
+                     </div>
+                 </div>
+                </nb-card-body>
+                <nb-card-footer>
+                  <button title="Fermer" nbButton hero status="danger" (click)="dismiss()" style="margin-right: 5px;">Fermer</button>
+                  <button title="Enregistrer" nbButton hero status="success" (click)="confirmSave(itemToSave)">Enregistrer</button>
+                </nb-card-footer>
+              </nb-card>
+        </div>
+    </div>
+</div>
+
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff"
+type = "ball-clip-rotate-pulse"
+>
+<p style="color: white" > Chargement... </p>
+</ngx-spinner>

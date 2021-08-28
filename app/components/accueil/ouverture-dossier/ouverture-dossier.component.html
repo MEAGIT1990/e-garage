@@ -1,21 +1,10 @@
-
-  
-    <div class="col-12">
-      <nb-card size="small">
-        <nb-tabset fullWidth>
-          <nb-tab tabTitle="Dossiers">
-            <span>Infos dossiers</span>
-          </nb-tab>
-          <nb-tab tabTitle="Documents">
-            <span>Infos documents</span>
-          </nb-tab>
-          <nb-tab tabTitle="Effets personnels">
-            <span>Infos effets personnels</span>
-          </nb-tab>
-          <nb-tab tabTitle="Equipements">
-            <span>Infos équipements</span>
-          </nb-tab>
-        </nb-tabset>
-      </nb-card>
-    </div>
-  
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Dossier">
+      <ngx-dossier></ngx-dossier>
+  </mat-tab>
+  <mat-tab label="Effets personnels">
+    <ngx-effet-personel></ngx-effet-personel>
+  </mat-tab>
+  <!-- <mat-tab label="Equipements">
+    <ngx-equipement-dossier></ngx-equipement-dossier>
+  </mat-tab> -->
