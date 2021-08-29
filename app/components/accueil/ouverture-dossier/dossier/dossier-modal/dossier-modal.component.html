@@ -6,7 +6,7 @@
         <div class="col-md-12 col-lg-12 col-xxxl-12 modal-body">
             <nb-card>
                 <nb-card-header>
-                    Dossier
+                    Dossier <span *ngIf="itemToSave.code" style="margin-left: 15px;">{{itemToSave.code}}</span>
                     <button (click)="dismiss()"  type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -18,22 +18,23 @@
                       <strong>Libellé</strong>
                       <input [(ngModel)]="itemToSave.libelle" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer libellé">
                      </div> -->
-                      <div class="col col-md-12">
+
+                      <div class="col col-md-4">
                          <strong>Vehicule</strong>
                       <select class="form-control" name="vehiculeId" [(ngModel)]="itemToSave.vehiculeId">
                           <option value="">Choisir Vehicule</option>
-                          <option *ngFor="let item of ListDataVehicule" value="{{item.id}}">{{item.typeCommerceLibelle}}</option>
+                          <option *ngFor="let item of ListDataVehicule" value="{{item.id}}">{{item.immatriculation}}</option>
                       </select>
                       </div>
 
-                      <div class="col col-md-12">
+                      <div class="col col-md-4">
                         <strong>Statut</strong>
                      <select class="form-control" name="statutId" [(ngModel)]="itemToSave.statutId">
                          <option value="">Choisir Statut</option>
                          <option *ngFor="let item of ListDataStatut" value="{{item.id}}">{{item.libelle}}</option>
                      </select>
                      </div>
-                     <div class="col col-md-12">
+                     <div class="col col-md-13">
                         <strong>Documents</strong>
                         <ng-multiselect-dropdown
                         [placeholder]="'Choisir documents'"
@@ -45,11 +46,9 @@
                       >
                       </ng-multiselect-dropdown>
                      </div>
-                     <div class="col col-md-12" style="margin-bottom: 10px;">
+                     <!-- <div class="col col-md-12" style="margin-bottom: 10px;">
                         <strong>Equipements</strong>
-                        <!-- <ng-select [(ngModel)]="itemToSave.equipementSelected" name="medicamentSelected" id="medicamentSelected" [ngModelOptions]="{standalone: true}">
-                           <ng-option *ngFor="let niv of ListDataEquipement" [value]="niv">{{(niv?.libelle)}}</ng-option>
-                         </ng-select> -->
+                     
 
                          <ng-multiselect-dropdown
                          [placeholder]="'custom placeholder'"
@@ -60,7 +59,7 @@
                          (onSelectAll)="onSelectAll($event)"
                        >
                        </ng-multiselect-dropdown>
-                     </div>
+                     </div> -->
                     
 
                       <!-- <div class="col col-md-12">
@@ -80,7 +79,7 @@
                         <div class="card-body">
                           <div class="row">
                             <div class="col col-md-10">
-                              <label for="isPosteAutoRadio">Post auto radio</label>
+                              <label for="isPosteAutoRadio">Poste auto radio</label>
                             </div>
                             <div class="col col-md-2" >
                               <input id="isPosteAutoRadio" [(ngModel)]="itemToSave.isPosteAutoRadio" type="checkbox" name="isPosteAutoRadio" style="margin-right: 5px;">

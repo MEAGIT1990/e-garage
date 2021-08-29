@@ -142,6 +142,7 @@ export class DossierComponent implements OnInit {
         vehiculeId: this.itemToSearch.vehiculeId,
         libelle: this.itemToSearch.libelle,
         code:this.itemToSearch.code,
+        vehiculeImmatriculation:this.itemToSearch.vehiculeImmatriculation
       }  
     }
     console.log('data sent to server',JSON.stringify(request));

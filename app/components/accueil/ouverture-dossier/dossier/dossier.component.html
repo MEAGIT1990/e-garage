@@ -13,15 +13,18 @@
           </select>
          </div> -->
 
-         <div class="col col-md-3">
+         <!-- <div class="col col-md-3">
           <select class="form-control" name="statutId" [(ngModel)]="itemToSearch.statutId">
               <option value="">Choisir Statut</option>
               <option *ngFor="let item of ListDataStatut" value="{{item.id}}">{{item.libelle}}</option>
           </select>
+        </div> -->
+        <div class="col col-md-3">
+          <input [(ngModel)]="itemToSearch.vehiculeImmatriculation" type="text" nbInput fullWidth shape="rectangle" placeholder="Entrer immatriculation">
         </div>
         <div class="col col-md-3">
          
-          <button title="Vider" *ngIf="itemToSearch.code || itemToSearch.libelle || itemToSearch.statutId || itemToSearch.vehiculeId"  nbButton status="danger" (click)="cancelData();getData()" style="margin-right: 3px;">
+          <button title="Vider" *ngIf="itemToSearch.code || itemToSearch.libelle || itemToSearch.statutId || itemToSearch.vehiculeId|| itemToSearch.vehiculeImmatriculation"  nbButton status="danger" (click)="cancelData();getData()" style="margin-right: 3px;">
             <i class="fa fa-times" style="margin-right: 2px;"></i>
           </button>
           <button title="Rechercher"  nbButton status="info" (click)="getData();page =1">
@@ -47,9 +50,10 @@
         <thead>
           <tr>
             <th  width="5%">#</th>
-            <th  width="15%">Numéro dossier</th>
-            <th >Véhicule</th>
-            <th>Statut</th>
+            <th  width="20%">Numéro dossier</th>
+            <th >Immatriculation</th>
+            <th >Type commerciale</th>
+            <!-- <th>Statut</th> -->
             <th>Date entrée</th>
             <th>Ressenti</th>
             <th  width="20%">Options</th>
@@ -60,8 +64,9 @@
           <tr *ngFor="let item  of ListItems;let i=index">
             <th scope="row">{{(i+1) + ((page - 1) * pageSize)}}</th>
             <td>{{item.code}}</td>
+            <td>{{item.vehiculeImmatriculation}}</td>
             <td>{{item.typeCommerceLibelle}}</td>
-            <td>{{item.statutLibelle}}</td>
+            <!-- <td>{{item.statutLibelle}}</td> -->
             <td>{{item.enteredAt}}</td>
             <td>{{item.ressenti}}</td>
             <td>
